@@ -1,6 +1,6 @@
 {
-  "title": "@cedar/html2canvas",
-  "name": "@cedar/html2canvas",
+  "title": "@cedar-kr/html2canvas",
+  "name": "@cedar-kr/html2canvas",
   "description": "Screenshots with JavaScript",
   "main": "dist/html2canvas.js",
   "module": "dist/html2canvas.esm.js",
