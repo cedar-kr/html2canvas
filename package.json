@@ -1,26 +1,26 @@
 {
-  "title": "html2canvas",
+  "title": "@cedar/html2canvas",
   "name": "@cedar/html2canvas",
   "description": "Screenshots with JavaScript",
   "main": "dist/html2canvas.js",
   "module": "dist/html2canvas.esm.js",
   "typings": "dist/types/index.d.ts",
   "browser": "dist/html2canvas.js",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": {
-    "name": "Niklas von Hertzen",
-    "email": "niklasvh@gmail.com",
-    "url": "https://hertzen.com"
+    "name": "jaeeo",
+    "email": "jaeeo99@gmail.com",
+    "url": "https://github.com/cedar-kr/html2canvas"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:niklasvh/html2canvas.git"
+    "url": "git@github.com:cedar-kr/html2canvas.git"
   },
   "bugs": {
-    "url": "https://github.com/niklasvh/html2canvas/issues"
+    "url": "https://github.com/cedar-kr/html2canvas"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -115,7 +115,7 @@
     "watch:unittest": "mocha --require ts-node/register --watch-extensions ts -w src/**/__tests__/*.ts",
     "start": "ts-node tests/server --port=8080 --cors=8081"
   },
-  "homepage": "https://html2canvas.hertzen.com",
+  "homepage": "https://github.com/cedar-kr/html2canvas",
   "license": "MIT",
   "dependencies": {
     "css-line-break": "^2.1.0",
