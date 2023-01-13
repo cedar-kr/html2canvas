@@ -22,8 +22,8 @@ export class FontMetrics {
 
         const body = this._document.body as HTMLBodyElement;
 
-        container.style.visibility = 'hidden';
         container.style.font = font;
+        container.style.visibility = 'hidden';
         container.style.margin = '0';
         container.style.padding = '0';
         container.style.whiteSpace = 'nowrap';

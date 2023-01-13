@@ -79,7 +79,7 @@ export class CanvasRenderer extends Renderer {
         this.fontMetrics = new FontMetrics(document);
         this.ctx.scale(this.options.scale, this.options.scale);
         this.ctx.translate(-options.x, -options.y);
-        this.ctx.textBaseline = 'bottom';
+        this.ctx.textBaseline = 'middle';
         this._activeEffects = [];
         this.context.logger.debug(
             `Canvas renderer initialized (${options.width}x${options.height}) with scale ${options.scale}`
@@ -146,11 +146,12 @@ export class CanvasRenderer extends Renderer {
 
     renderTextWithLetterSpacing(text: TextBounds, letterSpacing: number, baseline: number): void {
         if (letterSpacing === 0) {
-            this.ctx.fillText(text.text, text.bounds.left, text.bounds.top + baseline);
+            this.ctx.fillText(text.text, text.bounds.left, text.bounds.top + text.bounds.height / 2);
         } else {
             const letters = segmentGraphemes(text.text);
             letters.reduce((left, letter) => {
-                this.ctx.fillText(letter, left, text.bounds.top + baseline);
+                this.ctx.fillText(letter, left, text.bounds.top + text.bounds.height / 2);
+                console.log(baseline);
 
                 return left + this.ctx.measureText(letter).width;
             }, text.bounds.left);
@@ -180,7 +181,7 @@ export class CanvasRenderer extends Renderer {
 
         this.ctx.direction = styles.direction === DIRECTION.RTL ? 'rtl' : 'ltr';
         this.ctx.textAlign = 'left';
-        this.ctx.textBaseline = 'alphabetic';
+        this.ctx.textBaseline = 'middle';
         const {baseline, middle} = this.fontMetrics.getMetrics(font);
         const paintOrder = styles.paintOrder;
 
@@ -394,7 +395,7 @@ export class CanvasRenderer extends Renderer {
             this.ctx.font = font;
             this.ctx.fillStyle = asString(styles.color);
 
-            this.ctx.textBaseline = 'alphabetic';
+            this.ctx.textBaseline = 'middle';
             this.ctx.textAlign = canvasTextAlign(container.styles.textAlign);
 
             const bounds = contentBox(container);
@@ -427,7 +428,7 @@ export class CanvasRenderer extends Renderer {
                 baseline
             );
             this.ctx.restore();
-            this.ctx.textBaseline = 'alphabetic';
+            this.ctx.textBaseline = 'middle';
             this.ctx.textAlign = 'left';
         }
 
@@ -464,7 +465,7 @@ export class CanvasRenderer extends Renderer {
                     styles.letterSpacing,
                     computeLineHeight(styles.lineHeight, styles.fontSize.number) / 2 + 2
                 );
-                this.ctx.textBaseline = 'bottom';
+                this.ctx.textBaseline = 'middle';
                 this.ctx.textAlign = 'left';
             }
         }
